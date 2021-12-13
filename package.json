@@ -1,7 +1,7 @@
 {
   "name": "@stdlib/complex-reim",
   "version": "0.0.5",
-  "description": "Return the real and imaginary components of a complex number.",
+  "description": "Return the real and imaginary components of a double-precision complex floating-point number.",
   "license": "Apache-2.0",
   "author": {
     "name": "The Stdlib Authors",
@@ -37,15 +37,14 @@
     "url": "https://github.com/stdlib-js/stdlib/issues"
   },
   "dependencies": {
-    "@stdlib/array-float32": "^0.0.x",
     "@stdlib/array-float64": "^0.0.x",
-    "@stdlib/types": "^0.0.x"
+    "@stdlib/complex-float64": "^0.0.x",
+    "@stdlib/types": "^0.0.x",
+    "@stdlib/utils-library-manifest": "^0.0.x"
   },
   "devDependencies": {
     "@stdlib/assert-is-array-like": "^0.0.x",
     "@stdlib/bench": "^0.0.x",
-    "@stdlib/complex-float32": "^0.0.x",
-    "@stdlib/complex-float64": "^0.0.x",
     "@stdlib/math-base-special-round": "^0.0.x",
     "@stdlib/random-base-randu": "^0.0.x",
     "tape": "git+https://github.com/kgryte/tape.git#fix/globby",

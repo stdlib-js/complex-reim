@@ -1,7 +1,7 @@
 /**
 * @license Apache-2.0
 *
-* Copyright (c) 2018 The Stdlib Authors.
+* Copyright (c) 2021 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,28 +16,23 @@
 * limitations under the License.
 */
 
-'use strict';
+#include "stdlib/complex/reim.h"
+#include "stdlib/complex/float64.h"
+#include <stdio.h>
 
-/**
-* Return the real and imaginary components of a double-precision complex floating-point number.
-*
-* @module @stdlib/complex-reim
-*
-* @example
-* var Complex128 = require( '@stdlib/complex-float64' );
-* var reim = require( '@stdlib/complex-reim' );
-*
-* var z = new Complex128( 5.0, 3.0 );
-*
-* var out = reim( z );
-* // returns <Float64Array>[ 5.0, 3.0 ]
-*/
+int main() {
+	stdlib_complex128_t x[] = {
+		stdlib_complex128( 5.0, 2.0 ),
+		stdlib_complex128( -2.0, 1.0 ),
+		stdlib_complex128( 0.0, -0.0 ),
+		stdlib_complex128( 0.0/0.0, 0.0/0.0 )
+	};
 
-// MODULES //
-
-var main = require( './main.js' );
-
-
-// EXPORTS //
-
-module.exports = main;
+	double re;
+	double im;
+	int i;
+	for ( i = 0; i < 4; i++ ) {
+		stdlib_reim( x[ i ], &re, &im );
+		printf( "reim(v) = %lf, %lf\n", re, im );
+	}
+}
