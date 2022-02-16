@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/complex-reim",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Return the real and imaginary components of a double-precision complex floating-point number.",
   "license": "Apache-2.0",
   "author": {
