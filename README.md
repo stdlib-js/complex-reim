@@ -292,8 +292,8 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/complex-reim.svg
 [npm-url]: https://npmjs.org/package/@stdlib/complex-reim
 
-[test-image]: https://github.com/stdlib-js/complex-reim/actions/workflows/test.yml/badge.svg?branch=v0.1.0
-[test-url]: https://github.com/stdlib-js/complex-reim/actions/workflows/test.yml?query=branch:v0.1.0
+[test-image]: https://github.com/stdlib-js/complex-reim/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/complex-reim/actions/workflows/test.yml?query=branch:main
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/complex-reim/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/complex-reim?branch=main
