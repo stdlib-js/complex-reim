@@ -45,19 +45,30 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/complex-reim
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import reim from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-reim@esm/index.mjs';
-```
-The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/complex-reim/tags). For example,
-
-```javascript
-import reim from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-reim@v0.1.0-esm/index.mjs';
+var reim = require( '@stdlib/complex-reim' );
 ```
 
 #### reim( z )
@@ -65,7 +76,7 @@ import reim from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-reim@v0.1.0-esm/
 Returns the **real** and **imaginary** components of a double-precision complex floating-point number.
 
 ```javascript
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@esm/index.mjs';
+var Complex128 = require( '@stdlib/complex-float64' );
 
 var z = new Complex128( 5.0, 3.0 );
 var out = reim( z );
@@ -92,16 +103,11 @@ var out = reim( z );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@esm/index.mjs';
-import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
-import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@esm/index.mjs';
-import reim from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-reim@esm/index.mjs';
+```javascript
+var Complex128 = require( '@stdlib/complex-float64' );
+var randu = require( '@stdlib/random-base-randu' );
+var round = require( '@stdlib/math-base-special-round' );
+var reim = require( '@stdlib/complex-reim' );
 
 var out;
 var re;
@@ -116,10 +122,6 @@ for ( i = 0; i < 100; i++ ) {
     out = reim( z );
     console.log( '%s => %d, %d', z.toString(), out[ 0 ], out[ 1 ] );
 }
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -128,7 +130,105 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/complex/reim.h"
+```
+
+#### stdlib_reim( z, \*re, \*im )
+
+Returns the real and imaginary components of a double-precision complex floating-point number.
+
+```c
+#include "stdlib/complex/float64.h"
+
+stdlib_complex128_t z = stdlib_complex128( 5.0, 2.0 );
+
+// ...
+
+double re;
+double im;
+
+stdlib_reim( z, &re, &im );
+```
+
+The function accepts the following arguments:
+
+-   **z**: `[in] stdlib_complex128_t` double-precision complex floating-point number.
+-   **re**: `[out] double*` destination for real component.
+-   **im**: `[out] double*` destination for imaginary component.
+
+```c
+void stdlib_reim( const stdlib_complex128_t z, double *re, double *im );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/complex/reim.h"
+#include "stdlib/complex/float64.h"
+#include <stdio.h>
+
+int main( void ) {
+    const stdlib_complex128_t x[] = {
+        stdlib_complex128( 5.0, 2.0 ),
+        stdlib_complex128( -2.0, 1.0 ),
+        stdlib_complex128( 0.0, -0.0 ),
+        stdlib_complex128( 0.0/0.0, 0.0/0.0 )
+    };
+
+    double re;
+    double im;
+    int i;
+    for ( i = 0; i < 4; i++ ) {
+        stdlib_reim( x[ i ], &re, &im );
+        printf( "reim(v) = %lf, %lf\n", re, im );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -162,7 +262,7 @@ for ( i = 0; i < 100; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -192,8 +292,8 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/complex-reim.svg
 [npm-url]: https://npmjs.org/package/@stdlib/complex-reim
 
-[test-image]: https://github.com/stdlib-js/complex-reim/actions/workflows/test.yml/badge.svg?branch=v0.1.0
-[test-url]: https://github.com/stdlib-js/complex-reim/actions/workflows/test.yml?query=branch:v0.1.0
+[test-image]: https://github.com/stdlib-js/complex-reim/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/complex-reim/actions/workflows/test.yml?query=branch:main
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/complex-reim/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/complex-reim?branch=main
@@ -224,9 +324,9 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/complex/imag]: https://github.com/stdlib-js/complex-imag/tree/esm
+[@stdlib/complex/imag]: https://github.com/stdlib-js/complex-imag
 
-[@stdlib/complex/real]: https://github.com/stdlib-js/complex-real/tree/esm
+[@stdlib/complex/real]: https://github.com/stdlib-js/complex-real
 
 <!-- </related-links> -->
 
