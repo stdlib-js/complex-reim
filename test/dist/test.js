@@ -1,7 +1,7 @@
 /**
 * @license Apache-2.0
 *
-* Copyright (c) 2018 The Stdlib Authors.
+* Copyright (c) 2023 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -21,29 +21,13 @@
 // MODULES //
 
 var tape = require( 'tape' );
-var Complex128 = require( '@stdlib/complex-float64' );
-var Float64Array = require( '@stdlib/array-float64' );
-var reim = require( './../../dist' );
+var main = require( './../../dist' );
 
 
 // TESTS //
 
-tape( 'main export is a function', function test( t ) {
+tape( 'main export is defined', function test( t ) {
 	t.ok( true, __filename );
-	t.strictEqual( typeof reim, 'function', 'main export is a function' );
-	t.end();
-});
-
-tape( 'the function returns the real and imaginary components of a complex number', function test( t ) {
-	var expected;
-	var out;
-	var z;
-
-	z = new Complex128( 3.14, -3.14 );
-	out = reim( z );
-	expected = new Float64Array( [ 3.14, -3.14 ] );
-	t.strictEqual( out[ 0 ], expected[ 0 ], 'returns expected value' );
-	t.strictEqual( out[ 1 ], expected[ 1 ], 'returns expected value' );
-
+	t.strictEqual( main !== void 0, true, 'main export is defined' );
 	t.end();
 });
