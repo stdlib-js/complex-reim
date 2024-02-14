@@ -52,6 +52,11 @@ limitations under the License.
 ## Usage
 
 ```javascript
+import reim from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-reim@esm/index.mjs';
+```
+The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/complex-reim/tags). For example,
+
+```javascript
 import reim from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-reim@v0.2.0-esm/index.mjs';
 ```
 
@@ -96,7 +101,7 @@ var out = reim( z );
 import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@esm/index.mjs';
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
 import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@esm/index.mjs';
-import reim from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-reim@v0.2.0-esm/index.mjs';
+import reim from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-reim@esm/index.mjs';
 
 var out;
 var re;
